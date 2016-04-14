@@ -2,7 +2,7 @@
  =========================================================
  bootstrap-datetimejs
  https://github.com/Eonasdan/bootstrap-datetimepicker
- Copyright (c) 2015 Jonathan Peterson
+ Copyright (c) 2015 Jonathan Peterson window.$.fn.datetimepicker = $.fn.datetimepicker;
  =========================================================
  */
 /*
@@ -33,13 +33,13 @@
 /*global require:false */
 /*global jQuery:false */
 /*global moment:false */
-(function (factory, require) {
+(function (factory, r) {
     'use strict';
-    if (typeof define === 'function' && define.amd) {
+    if (typeof exports === 'object') {
+        factory(window.jQuery || r('jquery'), r('moment'));
+    } else if (typeof define === 'function' && define.amd) {
         // AMD is used - Register as an anonymous module.
         define(['jquery', 'moment'], factory);
-    } else if (typeof exports === 'object') {
-        factory(window.jQuery || require('jquery'), require('moment'));
     } else {
         // Neither AMD nor CommonJS used. Use global variables.
         if (typeof jQuery === 'undefined') {
